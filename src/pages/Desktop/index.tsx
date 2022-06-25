@@ -38,9 +38,9 @@ const Desktop = () => {
           <DesktopIcon icon={<img className='h-10 w-10' src={ds} />} name='DS 3' />
         </div>
 
-        <div className="absolute right-4 grid grid-cols-1 gap-4">
+        <div className="absolute right-4 grid grid-cols-1 gap-3">
           <Weather />
-          <CircleDisplay />
+          
           <div className='border border-neutral-800 rounded-2xl p-4
           flex flex-col items-center bg-neutral-900/70 backdrop-blur'>
             <img className='w-20 h-20 mb-4' src={pad} alt="" />
@@ -51,6 +51,8 @@ const Desktop = () => {
               <Level name='GPU' percent={8} />
             </div>
           </div>
+
+          <CircleDisplay />
         </div>
       </div>
     </div>
