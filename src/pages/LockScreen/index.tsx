@@ -17,7 +17,7 @@ const LockScreen = () => {
 
   return (
     <div className='w-full h-screen bg-neutral-900 text-white flex items-center justify-center relative'>
-      <div className="flex flex-col items-center -translate-y-10">
+      <div className="flex flex-col items-center -translate-y-20">
         <div className='w-36 h-36 rounded-full shadow-lg overflow-hidden'>
           <img
             className='h-full w-full object-cover'
@@ -45,7 +45,7 @@ const LockScreen = () => {
         </form>
       </div>
 
-      <div className='absolute bottom-10 flex flex-col items-center'>
+      <div className='absolute bottom-20 flex flex-col items-center'>
         <div className='flex items-center mb-2'>
           <RiDoorOpenFill className='text-3xl mr-2' />
           <span className='capitalize text-sm'>doors 11</span>

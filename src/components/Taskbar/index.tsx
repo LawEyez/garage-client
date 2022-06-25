@@ -2,13 +2,16 @@ import React from 'react'
 import {
   RiDoorOpenFill,
   RiSearch2Line,
-  RiArrowUpSLine
+  RiArrowUpSLine,
+  RiChromeFill,
+  RiFirefoxFill
 } from 'react-icons/ri'
 import {
   FcFolder,
   FcSteam,
   FcVlc
 } from 'react-icons/fc'
+import { SiAdobepremierepro, SiAdobexd } from 'react-icons/si'
 import { IoVolumeHighOutline, IoWifiOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 
@@ -25,9 +28,13 @@ const Taskbar = () => {
           <RiSearch2Line />
         </Link>
 
+        <SiAdobepremierepro className='text-blue-400'/>
+
         <FcVlc />
 
-        <div className="w-12 h-12 rounded-full flex items-center justify-center bg-red-500/80 backdrop-blur-xl">
+        <RiChromeFill />
+
+        <div className="w-12 h-12 rounded-full flex items-center justify-center bg-red-500/80 backdrop-blur-xl shadow-md">
           <RiDoorOpenFill />
         </div>        
         
@@ -36,6 +43,10 @@ const Taskbar = () => {
         </Link>
 
         <FcSteam />
+
+        <RiFirefoxFill />
+
+        <SiAdobexd className='text-blue-400'/>
       </div>
 
       <div className='absolute right-4 flex items-center text-white'>
