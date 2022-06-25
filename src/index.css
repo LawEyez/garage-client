@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Segoe';
+    src: url('https://res.cloudinary.com/dvaav1gff/raw/upload/v1656159755/SegoeUI-VF_ibz9ya.ttf');
+  }
+
+  html {
+    font-family: 'Segoe', 'Segoe UI', sans-serif;
+  }
+}
