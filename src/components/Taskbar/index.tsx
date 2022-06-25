@@ -49,7 +49,7 @@ const Taskbar = () => {
         <SiAdobexd className='text-blue-400'/>
       </div>
 
-      <div className='absolute right-4 flex items-center text-white'>
+      <div className='absolute right-4 hidden text-white sm:flex items-center'>
         <div className="flex items-center mr-4 space-x-2">
           <RiArrowUpSLine />
           <IoWifiOutline />
