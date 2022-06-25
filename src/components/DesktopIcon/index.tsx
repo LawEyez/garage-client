@@ -10,7 +10,7 @@ const DesktopIcon: React.FC<DesktopIconProps> = ({ name, icon }) => {
         {icon}
       </div>
 
-      <p className="mt-1 text-xs text-white drop-shadow-md capitalize text-center">{name}</p>
+      <p className="mt-1 text-xs text-white text-shadow capitalize text-center">{name}</p>
     </div>
   )
 }
