@@ -4,7 +4,7 @@ import { BsFillCloudSunFill } from 'react-icons/bs'
 
 const Weather = () => {
   return (
-    <div className='p-4 rounded-xl border border-neutral-800 bg-neutral-900/40 backdrop-blur text-white w-max'>
+    <div className='p-4 rounded-2xl border border-neutral-800 bg-neutral-900/70 backdrop-blur text-white w-max'>
       <span className='text-xs text-neutral-400 capitalize'>nakuru, kenya</span>
 
       <div className='flex items-center justify-between mt-2 space-x-10'>

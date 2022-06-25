@@ -13,6 +13,7 @@ import Weather from '../../components/Weather'
 import ds from './ds3.ico'
 import pc from './pc.ico'
 import pad from './controller.ico'
+import Level from '../../components/Level'
 
 
 const Desktop = () => {
@@ -27,7 +28,6 @@ const Desktop = () => {
       <div className="absolute h-full w-full z-10 p-4">
         <div className="absolute grid grid-cols-1 gap-3">
           <DesktopIcon icon={<img className='h-8 w-8' src={pc} />} name='This PC' />
-          <DesktopIcon icon={<FcFolder />} name='pictures' />
           <DesktopIcon icon={<FcFolder />} name='movies' />
           <DesktopIcon icon={<FcFolder />} name='music' />
           <DesktopIcon icon={<FcFolder />} name='projects' />
@@ -42,8 +42,14 @@ const Desktop = () => {
           <Weather />
           <CircleDisplay />
           <div className='border border-neutral-800 rounded-2xl p-4
-          flex flex-col items-center bg-neutral-900/80 backdrop-blur'>
-            <img className='w-20 h-20' src={pad} alt="" />
+          flex flex-col items-center bg-neutral-900/70 backdrop-blur'>
+            <img className='w-20 h-20 mb-4' src={pad} alt="" />
+            
+            <div className="grid gap-3 w-full">
+              <Level name='Memory' percent={10} />
+              <Level name='CPU' percent={20} />
+              <Level name='GPU' percent={8} />
+            </div>
           </div>
         </div>
       </div>

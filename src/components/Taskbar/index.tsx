@@ -35,7 +35,7 @@ const Taskbar = () => {
         <RiChromeFill />
 
         <div className="w-12 h-12 rounded-full flex items-center justify-center
-        bg-red-500/80 backdrop-blur-xl shadow-md">
+        bg-red-500/90 backdrop-blur shadow">
           <RiDoorOpenFill />
         </div>        
         
