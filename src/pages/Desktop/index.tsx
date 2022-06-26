@@ -29,17 +29,17 @@ const Desktop = () => {
 
       <div className="absolute h-full w-full z-10 p-4">
         <div className="absolute grid grid-cols-1 gap-3">
-          <DesktopIcon icon={<img className='h-8 w-8' src={pc} />} name='This PC' />
+          <DesktopIcon icon={<img className='h-8 w-8' src={pc} />} name='This PC' shortcut />
           <DesktopIcon icon={<FcFolder />} name='movies' />
           <Link to='/detection'>
-            <DesktopIcon icon={<FcCameraIdentification />} name='AI' />
+            <DesktopIcon icon={<FcCameraIdentification />} name='AI' shortcut />
           </Link>
           <DesktopIcon icon={<FcFolder />} name='projects' />
           <DesktopIcon icon={<FcFolder />} name='docs' />
-          <DesktopIcon icon={<FcVlc />} name='VLC' />
-          <DesktopIcon icon={<FcSteam />} name='steam' />
-          <DesktopIcon icon={<FcCommandLine />} name='CMD' />
-          <DesktopIcon icon={<img className='h-10 w-10' src={ds} />} name='DS 3' />
+          <DesktopIcon icon={<FcVlc />} name='VLC' shortcut />
+          <DesktopIcon icon={<FcSteam />} name='steam' shortcut />
+          <DesktopIcon icon={<FcCommandLine />} name='CMD' shortcut />
+          <DesktopIcon icon={<img className='h-8 w-8' src={ds} />} name='DS 3' shortcut />
         </div>
 
         <div className="absolute right-4 grid grid-cols-1 gap-3">
