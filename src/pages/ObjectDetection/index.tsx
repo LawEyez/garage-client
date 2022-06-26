@@ -10,8 +10,8 @@ const ObjectDetection = () => {
   const navigate = useNavigate()
 
   // Create refs.
-  const videoRef = useRef(undefined)
-  const canvasRef = useRef('')
+  const videoRef = useRef('') as React.MutableRefObject<any>
+  const canvasRef = useRef('') as React.MutableRefObject<any>
 
   useEffect(() => {
     if (navigator.mediaDevices) {
