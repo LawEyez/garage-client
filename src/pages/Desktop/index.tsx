@@ -3,7 +3,8 @@ import {
   FcFolder,
   FcSteam,
   FcVlc,
-  FcCommandLine
+  FcCommandLine,
+  FcCameraIdentification
 } from 'react-icons/fc'
 
 import CircleDisplay from '@components/CircleDisplay'
@@ -14,6 +15,7 @@ import Level from '@components/Level'
 import ds from './ds3.ico'
 import pc from './pc.ico'
 import pad from './controller.ico'
+import { Link } from 'react-router-dom'
 
 
 const Desktop = () => {
@@ -29,7 +31,9 @@ const Desktop = () => {
         <div className="absolute grid grid-cols-1 gap-3">
           <DesktopIcon icon={<img className='h-8 w-8' src={pc} />} name='This PC' />
           <DesktopIcon icon={<FcFolder />} name='movies' />
-          <DesktopIcon icon={<FcFolder />} name='music' />
+          <Link to='/detection'>
+            <DesktopIcon icon={<FcCameraIdentification />} name='AI' />
+          </Link>
           <DesktopIcon icon={<FcFolder />} name='projects' />
           <DesktopIcon icon={<FcFolder />} name='docs' />
           <DesktopIcon icon={<FcVlc />} name='VLC' />
