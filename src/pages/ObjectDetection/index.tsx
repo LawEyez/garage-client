@@ -4,6 +4,13 @@ import '@tensorflow/tfjs'
 import { RiArrowLeftSLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 
+// Add 'stream' to window type.
+declare global {
+  interface Window {
+    stream: any
+  }
+}
+
 
 const ObjectDetection = () => {
   // Navigate.
@@ -28,7 +35,7 @@ const ObjectDetection = () => {
         
         videoRef.current.srcObject = stream
 
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
           videoRef.current.onloadedmetadata = () => {
             resolve()
           }
@@ -47,8 +54,8 @@ const ObjectDetection = () => {
   }, [])
 
   // Detect the frame.
-  const detectFrame = (video, model) => {
-    model.detect(video).then(predictions => {
+  const detectFrame = (video: any, model: any) => {
+    model.detect(video).then((predictions: any) => {
       renderPredictions(predictions)
       requestAnimationFrame(() => {
         detectFrame(video, model)
@@ -57,7 +64,7 @@ const ObjectDetection = () => {
   }
 
   // Render predictions.
-  const renderPredictions = (predictions) => {
+  const renderPredictions = (predictions: any) => {
     const ctx = canvasRef.current.getContext('2d')
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
@@ -68,7 +75,7 @@ const ObjectDetection = () => {
     ctx.font = font
     ctx.textBaseline = 'top'
 
-    predictions.forEach(prediction => {
+    predictions.forEach((prediction: any) => {
       const [x, y, width, height] = prediction.bbox
 
       // Draw bounding box.
@@ -84,7 +91,7 @@ const ObjectDetection = () => {
       ctx.fillRect(x, y, textWidth + 4, textHeight + 4)
     })
 
-    predictions.forEach(prediction => {
+    predictions.forEach((prediction: any) => {
       const [x, y, ..._] = prediction.bbox
 
       // Draw the text last to ensure it's on top.
