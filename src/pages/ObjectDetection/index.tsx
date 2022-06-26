@@ -102,14 +102,14 @@ const ObjectDetection = () => {
 
   return (
     <div className='fixed h-screen w-full bg-neutral-900'>
-      <div className="relative w-1/3 h-full mx-auto">
+      <div className="relative w-5/6 lg:w-1/3 h-full mx-auto">
         <div className="translate-y-20">
           <div
             className="flex items-center mb-6 cursor-pointer"
             onClick={() => navigate(-1)}
           >
             <div className="rounded-full border border-neutral-400 flex items-center justify-center
-            text-white p-1">
+            text-white w-6 h-6">
               <RiArrowLeftSLine />
             </div>
             <span className="ml-3 capitalize text-neutral-200 text">back</span>
@@ -125,7 +125,7 @@ const ObjectDetection = () => {
           ref={videoRef}
           height='500'
           width={600}
-          className='absolute top-1/2 left-1/2 rounded-lg
+          className='absolute top-1/2 left-1/2 rounded-xl
           -translate-y-1/2 -translate-x-1/2' 
         />
 
