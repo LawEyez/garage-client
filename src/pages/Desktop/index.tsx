@@ -6,14 +6,14 @@ import {
   FcCommandLine
 } from 'react-icons/fc'
 
-import CircleDisplay from '../../components/CircleDisplay'
-import DesktopIcon from '../../components/DesktopIcon'
-import Weather from '../../components/Weather'
+import CircleDisplay from '@components/CircleDisplay'
+import DesktopIcon from '@components/DesktopIcon'
+import Weather from '@components/Weather'
+import Level from '@components/Level'
 
 import ds from './ds3.ico'
 import pc from './pc.ico'
 import pad from './controller.ico'
-import Level from '../../components/Level'
 
 
 const Desktop = () => {
