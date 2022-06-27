@@ -101,15 +101,15 @@ const ObjectDetection = () => {
       ctx.fillStyle = '#ffffff'
       const textWidth = ctx.measureText(prediction.class).width
       const textHeight = parseInt(font, 10)
-      ctx.fillRect(x + 200, y, textWidth + 4, textHeight + 4)
+      ctx.fillRect(x + (width/2), y, textWidth + 4, textHeight + 4)
     })
 
     predictions.forEach((prediction: any) => {
-      const [x, y, ..._] = prediction.bbox
+      const [x, y, width, ..._] = prediction.bbox
 
       // Draw the text last to ensure it's on top.
       ctx.fillStyle = '#000000'
-      ctx.fillText(prediction.class, x + 200, y)
+      ctx.fillText(prediction.class, x + (width/2), y)
     })
   }
 
