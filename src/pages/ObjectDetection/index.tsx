@@ -1,8 +1,11 @@
-import React, { useEffect, useRef } from 'react'
-import * as cocoSSD from '@tensorflow-models/coco-ssd'
-import '@tensorflow/tfjs'
+import React, { useEffect, useRef, useState } from 'react'
 import { RiArrowLeftSLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
+
+import * as cocoSSD from '@tensorflow-models/coco-ssd'
+import '@tensorflow/tfjs'
+
+import Loader from '@components/Loader'
 
 // Add 'stream' to window type.
 declare global {
@@ -16,11 +19,16 @@ const ObjectDetection = () => {
   // Navigate.
   const navigate = useNavigate()
 
+  // Configure state.
+  const [loading, setLoading] = useState<boolean>(false)
+
   // Create refs.
   const videoRef = useRef('') as React.MutableRefObject<any>
   const canvasRef = useRef('') as React.MutableRefObject<any>
 
   useEffect(() => {
+    setLoading(true)
+
     if (navigator.mediaDevices) {
 
       // Load webcam.
@@ -48,8 +56,12 @@ const ObjectDetection = () => {
       // Call detectFrame after promise resolution.
       Promise.all([model, webcam]).then(values => {
         detectFrame(videoRef.current, values[0])
+        setLoading(false)
       })
-      .catch(err => console.error(err))
+      .catch(err => {
+        setLoading(false)
+        console.error(err)
+      })
     }
   }, [])
 
@@ -103,7 +115,7 @@ const ObjectDetection = () => {
   return (
     <div className='fixed h-screen w-full bg-neutral-900'>
       <div className="relative w-5/6 lg:w-1/3 h-full mx-auto">
-        <div className="translate-y-20">
+        <div className="translate-y-10 2xl:translate-y-20 absolute z-30">
           <div
             className="flex items-center mb-6 cursor-pointer"
             onClick={() => navigate(-1)}
@@ -115,7 +127,8 @@ const ObjectDetection = () => {
             <span className="ml-3 capitalize text-neutral-200 text">back</span>
           </div>
           
-          <h1 className="capitalize text-white text-xl">object detection</h1>
+          <h1 className="capitalize text-white mb-4 text-xl">object detection</h1>
+          
         </div>
 
         <video 
@@ -136,6 +149,14 @@ const ObjectDetection = () => {
           -translate-y-1/2 -translate-x-1/2 z-10'
           ref={canvasRef}
         />
+
+        {loading && (
+          <div className="absolute top-1/2 left-1/2 rounded-lg w-[600px] h-[500px]
+          -translate-y-1/2 -translate-x-1/2 z-50 flex items-center justify-center
+          bg-neutral-900/90">
+            <Loader />
+          </div>
+        )}
       </div>
     </div>
   )

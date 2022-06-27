@@ -6,6 +6,7 @@ import {
   FcCommandLine,
   FcCameraIdentification
 } from 'react-icons/fc'
+import { Link } from 'react-router-dom'
 
 import CircleDisplay from '@components/CircleDisplay'
 import DesktopIcon from '@components/DesktopIcon'
@@ -15,7 +16,6 @@ import Level from '@components/Level'
 import ds from './ds3.ico'
 import pc from './pc.ico'
 import pad from './controller.ico'
-import { Link } from 'react-router-dom'
 
 
 const Desktop = () => {
