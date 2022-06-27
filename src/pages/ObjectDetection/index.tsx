@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { RiArrowLeftSLine } from 'react-icons/ri'
+import { RiArrowLeftSLine, RiCameraSwitchFill } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 
 import * as cocoSSD from '@tensorflow-models/coco-ssd'
 import '@tensorflow/tfjs'
 
 import Loader from '@components/Loader'
+import { FcSwitchCamera } from 'react-icons/fc'
 
 // Add 'stream' to window type.
 declare global {
@@ -21,10 +22,21 @@ const ObjectDetection = () => {
 
   // Configure state.
   const [loading, setLoading] = useState<boolean>(false)
+  const [facing, setFacing] = useState<string>('user')
 
   // Create refs.
   const videoRef = useRef('') as React.MutableRefObject<any>
   const canvasRef = useRef('') as React.MutableRefObject<any>
+
+  // Handle facing mode change.
+  const switchCamera = () => {
+    if (facing === 'user') {
+      setFacing('environment')
+
+    } else {
+      setFacing('user')
+    }
+  }
 
   useEffect(() => {
     setLoading(true)
@@ -35,7 +47,7 @@ const ObjectDetection = () => {
       const webcam = navigator.mediaDevices.getUserMedia({
         audio: false,
         video: {
-          facingMode: 'user'
+          facingMode: facing
         }
       })
       .then(stream => {
@@ -63,7 +75,7 @@ const ObjectDetection = () => {
         console.error(err)
       })
     }
-  }, [])
+  }, [facing])
 
   // Detect the frame.
   const detectFrame = (video: any, model: any) => {
@@ -116,7 +128,7 @@ const ObjectDetection = () => {
   return (
     <div className='fixed h-screen w-full bg-neutral-900'>
       <div className="relative w-5/6 lg:w-1/3 h-full mx-auto">
-        <div className="translate-y-10 2xl:translate-y-20 absolute z-30">
+        <div className="translate-y-10 2xl:translate-y-20 absolute z-30 w-full">
           <div
             className="flex items-center mb-6 cursor-pointer"
             onClick={() => navigate(-1)}
@@ -128,7 +140,16 @@ const ObjectDetection = () => {
             <span className="ml-3 capitalize text-neutral-200 text">back</span>
           </div>
           
-          <h1 className="capitalize text-white mb-4 text-xl">object detection</h1>
+          <div className="mb-4 flex items-center justify-between w-full">
+            <h1 className="capitalize text-white text-xl">object detection</h1>
+            <button
+              className="flex items-center justify-center text-neutral-50
+            bg-sky-600 w-8 h-8 rounded-full cursor-pointer"
+              onClick={switchCamera}
+            >
+              <RiCameraSwitchFill />
+            </button>
+          </div>
           
         </div>
 
