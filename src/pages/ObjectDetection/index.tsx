@@ -22,7 +22,7 @@ const ObjectDetection = () => {
 
   // Configure state.
   const [loading, setLoading] = useState<boolean>(false)
-  const [facing, setFacing] = useState<string>('user')
+  const [facing, setFacing] = useState<any>('user')
 
   // Create refs.
   const videoRef = useRef('') as React.MutableRefObject<any>
@@ -31,7 +31,7 @@ const ObjectDetection = () => {
   // Handle facing mode change.
   const switchCamera = () => {
     if (facing === 'user') {
-      setFacing('environment')
+      setFacing({exact: 'environment'})
 
     } else {
       setFacing('user')
@@ -89,7 +89,6 @@ const ObjectDetection = () => {
 
   // Render predictions.
   const renderPredictions = (predictions: any) => {
-    console.log('predictions', predictions)
     const ctx = canvasRef.current.getContext('2d')
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
@@ -144,7 +143,7 @@ const ObjectDetection = () => {
             <h1 className="capitalize text-white text-xl">object detection</h1>
             <button
               className="flex items-center justify-center text-neutral-50
-            bg-sky-600 w-8 h-8 rounded-full cursor-pointer"
+            bg-sky-600 w-10 h-8 rounded-full cursor-pointer"
               onClick={switchCamera}
             >
               <RiCameraSwitchFill />
