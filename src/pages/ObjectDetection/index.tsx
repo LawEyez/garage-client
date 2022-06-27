@@ -77,6 +77,7 @@ const ObjectDetection = () => {
 
   // Render predictions.
   const renderPredictions = (predictions: any) => {
+    console.log('predictions', predictions)
     const ctx = canvasRef.current.getContext('2d')
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
@@ -100,7 +101,7 @@ const ObjectDetection = () => {
       ctx.fillStyle = '#ffffff'
       const textWidth = ctx.measureText(prediction.class).width
       const textHeight = parseInt(font, 10)
-      ctx.fillRect(x, y, textWidth + 4, textHeight + 4)
+      ctx.fillRect(x + 200, y, textWidth + 4, textHeight + 4)
     })
 
     predictions.forEach((prediction: any) => {
@@ -108,7 +109,7 @@ const ObjectDetection = () => {
 
       // Draw the text last to ensure it's on top.
       ctx.fillStyle = '#000000'
-      ctx.fillText(prediction.class, x, y)
+      ctx.fillText(prediction.class, x + 200, y)
     })
   }
 
